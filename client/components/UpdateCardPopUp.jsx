@@ -15,20 +15,15 @@ const UpdateWindowPopUp = props => {
   const handleSubmit = (e) => {
     e.preventDefault(); // prevent default form behavior
 
-    // Access the form data
-    const formData = new FormData(e.target);
-
-    // Save form data
-    const filledFields = {
+    const formData = new FormData(e.target); // Access the form data
+    const filledFields = {  // Save form data
       restaurantName: formData.get('restaurantName'),
       address: formData.get('address'),
       foodExperience: formData.get('foodExperience')
     }
-
     const { restaurantName, address, foodExperience } = filledFields;
 
-    // make sure fields aren't blank
-    if (restaurantName !== '' && address !== '' && foodExperience !== '') {
+    if (restaurantName !== '' && address !== '' && foodExperience !== '') { // make sure fields aren't blank
       dispatch(updateCard({ id, updatedEntry: filledFields })); // update state
       onClose(); // close window
     }

@@ -7,7 +7,6 @@ const CardsDisplay = () => {
 
   const boolForInitialize = useSelector((state) => state.cards.restaurantList.length === 0); // check if anythings been created
 
-
   const cardBox = [];
   const restaurantList = useSelector((state) => state.cards.restaurantList); // obtain restaurant array
 
