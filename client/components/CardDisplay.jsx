@@ -5,11 +5,6 @@ import { useSelector } from 'react-redux';
 
 const CardsDisplay = () => {
 
-  // const { addCard, deleteCard } = props;
-
-  // initialize Market up here
-  // if marketlist length is 0 / doesn't exist, skip
-  // otherwise create market via iterations
   const boolForInitialize = useSelector((state) => state.cards.restaurantList.length === 0); // check if anythings been created
 
 
@@ -25,13 +20,6 @@ const CardsDisplay = () => {
           restaurantName={currRestaurant.restaurantName}
           address={currRestaurant.address}
           foodExperience={currRestaurant.foodExperience} />
-        // <Market
-        //   marketId={marketList[i].marketId}
-        //   location={marketList[i].location}
-        //   cards={marketList[i].cards}
-        //   percent={marketList[i].percent}
-        //   addCard={addCard}
-        //   deleteCard={deleteCard} />
       );
     })
   }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { deleteCard } from '../Redux/reducers/cardSlice';
 import UpdateWindowPopUp from './UpdateCardPopUp.jsx';
 import { useDispatch } from 'react-redux';
+import StarRating from './StarRating.jsx';
 
 const Card = props => {
 

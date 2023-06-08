@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   restaurantList: [],
+  totalRestaurants: 0
 }
 
 export const cardSlice = createSlice({
@@ -15,6 +16,7 @@ export const cardSlice = createSlice({
       // immutable state based off those changes
 
       state.restaurantList.push(action.payload);
+      state.totalRestaurants += 1;
     },
 
     // how can I invoke the form element again
@@ -25,6 +27,7 @@ export const cardSlice = createSlice({
 
     deleteCard: (state, action) => {
       state.restaurantList.splice(action.payload, 1);
+      state.totalRestaurants -= 1;
     }
   },
 })

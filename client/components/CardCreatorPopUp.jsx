@@ -1,25 +1,11 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addCard } from '../Redux/reducers/cardSlice';
 
 // create pop up window that shows when creating entry
-
 const WindowPopUp = props => {
 
   const { isOpen, onClose } = props;
-
-  // Logic
-  // all inputs as form data
-  // button at bottom to save and close
-  // button save/close onSubmit triggers dispatch to reducer to create marketList component with entries
-  // individual card entries populated with the respective information via card display
-  // props:
-  // title
-  // address
-  // thoughts
-  // rating
-  // images
-
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
