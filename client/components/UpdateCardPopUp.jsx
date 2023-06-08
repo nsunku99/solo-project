@@ -1,24 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addCard } from '../Redux/reducers/cardSlice';
+import { updateCard } from '../Redux/reducers/cardSlice';
 
-// create pop up window that shows when creating entry
+// show pop up window that shows when updated entry
 
-const WindowPopUp = props => {
+const UpdateWindowPopUp = props => {
 
-  const { isOpen, onClose } = props;
+  const { isOpen, onClose, id } = props;
 
-  // Logic
-  // all inputs as form data
-  // button at bottom to save and close
-  // button save/close onSubmit triggers dispatch to reducer to create marketList component with entries
-  // individual card entries populated with the respective information via card display
-  // props:
-  // title
-  // address
-  // thoughts
-  // rating
-  // images
+  const currentRestaurant = useSelector(state => state.cards.restaurantList[id]); // id serves as index
 
   const dispatch = useDispatch();
 
@@ -34,11 +24,12 @@ const WindowPopUp = props => {
       address: formData.get('address'),
       foodExperience: formData.get('foodExperience')
     }
+
     const { restaurantName, address, foodExperience } = filledFields;
 
     // make sure fields aren't blank
     if (restaurantName !== '' && address !== '' && foodExperience !== '') {
-      dispatch(addCard(filledFields)); // update state
+      dispatch(updateCard({ id, updatedEntry: filledFields })); // update state
       onClose(); // close window
     }
   }
@@ -47,20 +38,20 @@ const WindowPopUp = props => {
     return (
       <div className='overlay'>
         <div className='popUpBody'>
-          <h3>New Restaurant Entry</h3>
+          <h3>Update Restaurant Entry</h3>
           <form className='entryCardForm' onSubmit={handleSubmit}>
             <div className='forGrid'>
               <div>
                 <span>Where'd Ya Go?</span>
-                <input name='restaurantName' type='text' />
+                <input name='restaurantName' type='text' defaultValue={currentRestaurant.restaurantName} />
               </div>
               <div>
                 <span>Where's it at?</span>
-                <input name='address' type='text' />
+                <input name='address' type='text' defaultValue={currentRestaurant.address} />
               </div>
               <div>
                 <span>So tell me about your experience</span>
-                <textarea name='foodExperience' />
+                <textarea name='foodExperience' defaultValue={currentRestaurant.foodExperience} />
               </div>
             </div>
             <div className='button-container'>
@@ -68,12 +59,12 @@ const WindowPopUp = props => {
               <button onClick={onClose}>Close</button>
             </div>
           </form>
-        </div >
-      </div >
+        </div>
+      </div>
     )
   } else {
     return null;
   }
 }
 
-export default WindowPopUp
+export default UpdateWindowPopUp

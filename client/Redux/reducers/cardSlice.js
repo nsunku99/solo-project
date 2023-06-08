@@ -16,15 +16,22 @@ export const cardSlice = createSlice({
 
       state.restaurantList.push(action.payload);
     },
-    // deleteLocation: (state) => {
-    //   state.value -= 1
-    // },
+
+    // how can I invoke the form element again
+    updateCard: (state, action) => {
+      const { id, updatedEntry } = action.payload;
+      state.restaurantList[id] = updatedEntry;
+    },
+
+    deleteCard: (state, action) => {
+      state.restaurantList.splice(action.payload, 1);
+    }
   },
 })
 
 
 
 // Action creators are generated for each case reducer function
-export const { addCard } = cardSlice.actions
+export const { addCard, updateCard, deleteCard } = cardSlice.actions
 
 export default cardSlice.reducer

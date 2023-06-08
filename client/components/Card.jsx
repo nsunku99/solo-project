@@ -1,49 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { deleteCard } from '../Redux/reducers/cardSlice';
+import UpdateWindowPopUp from './UpdateCardPopUp.jsx';
+import { useDispatch } from 'react-redux';
 
 const Card = props => {
 
-  const { id, restaurantName } = props;
+  const { id, restaurantName, address, foodExperience } = props;
 
-  // const { marketId, location, cards, percent, addCard, deleteCard } = props;
+  const dispatch = useDispatch();
 
-  // // invoke element that button clicks
-  // const handleClickAdd = (e) => {
-  //   addCard(marketId);
-  // };
+  // functions for pop up window that shows when creating entry
+  const [creatorOpen, setCreatorOpen] = useState(false); // determines condition for popup or not
 
-  // // invoke element that button clicks
-  // const handleClickDelete = (e) => {
-  //   deleteCard(marketId);
-  // };
+  const handleClose = () => setCreatorOpen(false); // close editing window
+
+  // edit entry
+  const handleClickEdit = (e) => {
+    setCreatorOpen(true);
+  }
+
+  // delete entry
+  const handleClickDelete = (e) => {
+    dispatch(deleteCard(e.target.id));
+  };
 
 
   return (
-    <div className="card">
-      {/* <div>
-        <label htmlFor='marketId'>Market ID: </label>
-        <span id='marketId'>{marketId}</span>
-      </div>
-      <div>
-        <label htmlFor='marketId'>Location: </label>
-        <span id='Location'>{location}</span>
-      </div>
-      <div>
-        <label htmlFor='marketId'>Cards: </label>
-        <span id='cards'>{cards}</span>
-      </div>
-      <div>
-        <label htmlFor='marketId'>% of total: </label>
-        <span id='percent'>{percent}</span>
-      </div> */}
+    <div id={id} key={id} className="card">
       <h3
-        id={id}
         className='restaurantName'>{restaurantName}</h3>
-      <h5 className='restaurantLocation'>restaurant location</h5>
-      <textarea />
+      <h5 className='restaurantLocation'>{address}</h5>
+      <p className='writtenExperience'>{foodExperience}</p>
       <div>
-        <button>Edit</button>
-        <button>Delete</button>
+        <button id={id} className='editButton' onClick={handleClickEdit}>Edit</button>
+        <button id={id} className='deleteButton' onClick={handleClickDelete}>Delete</button>
       </div>
+      <UpdateWindowPopUp id={id} isOpen={creatorOpen} onClose={handleClose} />
     </div>
   );
 };

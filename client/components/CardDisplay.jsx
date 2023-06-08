@@ -3,9 +3,9 @@ import Card from './Card.jsx';
 import { useSelector } from 'react-redux';
 
 
-const CardsDisplay = props => {
+const CardsDisplay = () => {
 
-  const { addCard, deleteCard } = props;
+  // const { addCard, deleteCard } = props;
 
   // initialize Market up here
   // if marketlist length is 0 / doesn't exist, skip
@@ -17,11 +17,14 @@ const CardsDisplay = props => {
   const restaurantList = useSelector((state) => state.cards.restaurantList); // obtain restaurant array
 
   if (!boolForInitialize) {
-    restaurantList.map((val, idx) => {
+    restaurantList.map((currRestaurant, idx) => {
       cardBox.push(
         <Card
+          key={idx}
           id={idx}
-          restaurantName={val} />
+          restaurantName={currRestaurant.restaurantName}
+          address={currRestaurant.address}
+          foodExperience={currRestaurant.foodExperience} />
         // <Market
         //   marketId={marketList[i].marketId}
         //   location={marketList[i].location}
