@@ -16,6 +16,14 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
     ],
   },
   devServer: {
@@ -27,5 +35,8 @@ module.exports = {
     proxy: {
       '/api': 'http://localhost:8080',
     },
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
 };

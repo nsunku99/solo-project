@@ -1,0 +1,51 @@
+* {
+  font-family: sans-serif;
+}
+
+.displayBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  border: solid 2px black;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+// Pop Up Window for Card Creator
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.popUpBody {
+  background-color: white;
+  padding: 20px;
+  width: 80%;
+  border-radius: 8px;
+}
+
+.entryCardForm {
+  position: relative;
+
+  div {
+    font-size: 12px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    gap: 5px;
+    margin: 10px;
+  }
+
+}

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import * as actions from '../actions/actions';
 // import child components...
 import CardCreator from '../components/CardCreator.jsx';
+import CardsDisplay from '../components/CardDisplay.jsx';
 // import MarketsDisplay from '../components/MarketsDisplay.jsx';
 // import MarketCreator from '../components/MarketCreator.jsx';
 
@@ -19,8 +20,8 @@ const CardContainer = () => {
   return (
     <div className="innerbox">
       { /* add components here... */}
-      <h1>container test</h1>
       <CardCreator />
+      <CardsDisplay />
     </div>
   );
 };
