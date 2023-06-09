@@ -7,23 +7,19 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const App = () => {
 
-  // const dispatch = useDispatch();
-  // const state = useSelector(state => state.cards);
-  // // // initialize from existing data
-  // useEffect(() => {
-  //   axios.get('/api')
-  //     .then(response => {
-  //       console.log('is this even loading')
-  //       const data = response.data;
-  //       console.log('response data, ', data);
-  //     })
-  //     .catch(err => console.log('axios get error', err))
-
-  // }, [state]); // empty array prevents useEffect from being rerun
-
   return (
     <div id='app'>
-      <h1>Personal Food Diary</h1>
+      <nav className='navBar'>
+        <h1>Personal Food Diary!!</h1>
+        <div>
+          <button>
+            <span>About</span>
+          </button>
+          <button>
+            <span>Help</span>
+          </button>
+        </div>
+      </nav>
       <div>
         {/* <p>test</p>
         // nav bar / top bar

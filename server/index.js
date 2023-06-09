@@ -11,7 +11,7 @@ app.use(express.json());
 app.get('/api/cards', (req, res) => {
 
   const filePath = path.resolve(__dirname, './db/restaurantData.json');
-  console.log('filePath', filePath);
+  // console.log('filePath', filePath);
   const data = fs.readFileSync(filePath);
   const jsonData = JSON.parse(data);
   console.log('GET: initial data from json read file', jsonData);

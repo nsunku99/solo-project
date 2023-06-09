@@ -1,4 +1,15 @@
 {
-  "restaurantList": [],
-  "totalRestaurants": 0
+  "restaurantList": [
+    {
+      "restaurantName": "Sliver Pizzeria",
+      "address": "Berkeley, CA",
+      "foodExperience": "Kinda pricey but very good pizza. Green sauce delicious, potato and corn pizza best flavor"
+    },
+    {
+      "restaurantName": "Mcdonalds",
+      "address": "Los Angeles",
+      "foodExperience": "I like fries"
+    }
+  ],
+  "totalRestaurants": 2
 }

@@ -2,8 +2,50 @@
   font-family: sans-serif;
 }
 
+button {
+  font-size: 15px;
+  border: solid 3px rgb(136, 173, 185);
+  border-radius: 5px;
+  padding: 15px 30px;
+  background-color: white;
+  margin: auto 10px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: lightgray;
+  }
+}
+
+h4 {
+  font-size: 20px;
+  color: white;
+  font-weight: 300;
+}
+
+.navBar {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  h1 {
+    font-size: 40px;
+    margin-right: auto;
+    color: white;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-size: 15px;
+    }
+  }
+}
+
 body {
   margin: 50px;
+  background-color: rgb(26, 54, 126);
 }
 
 .displayBox {
@@ -12,12 +54,12 @@ body {
 }
 
 .card {
-  border: solid 2px black;
+  border: solid 3px rgb(136, 173, 185);
   border-radius: 10px;
   text-align: center;
   padding: 10px;
   margin: 10px;
-  // background-color: aquamarine;
+  background-color: rgb(193, 215, 223);
 
   p {
     // background-color: white;
@@ -25,6 +67,10 @@ body {
     min-height: 50px;
     text-align: center;
     vertical-align: middle;
+  }
+
+  button {
+    background-color: white;
   }
 }
 

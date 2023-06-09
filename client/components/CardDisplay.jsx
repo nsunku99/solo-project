@@ -60,7 +60,7 @@ const CardsDisplay = () => {
 
   return (
     <div>
-      <h4>Entries</h4>
+      <h4>Look at all your restaurants...</h4>
       <div className="displayBox">
         {cardBox}
       </div>
