@@ -20,11 +20,16 @@ export const cardSlice = createSlice({
     deleteCard: (state, action) => {
       state.restaurantList.splice(action.payload, 1);
       state.totalRestaurants -= 1;
+    },
+    initializeState: (state, action) => {
+      const { restaurantList, totalRestaurants } = action.payload;
+      state.restaurantList = restaurantList;
+      state.totalRestaurants = totalRestaurants;
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addCard, updateCard, deleteCard } = cardSlice.actions
+export const { addCard, updateCard, deleteCard, initializeState } = cardSlice.actions
 
 export default cardSlice.reducer
